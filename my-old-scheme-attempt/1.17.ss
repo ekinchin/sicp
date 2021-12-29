@@ -1,0 +1,10 @@
+(define (fast-mul x n)
+  (define (double x)(* x 2))
+  (cond ((= n 1) x)
+        ((= n 0) 0)
+        ((even? n)(double (fast-mul x (/ n 2))))
+        (else (+ x (fast-mul x (- n 1))))))
+
+(fast-mul 5 7)
+(fast-mul 11 23)
+(fast-mul 14 100)

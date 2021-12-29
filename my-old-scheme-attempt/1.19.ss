@@ -1,0 +1,11 @@
+(define (fast-mul-i x n)
+  (define (double x)(* x 2))
+  (define (fast-mul-iter x n sum)
+  (cond ((= n 0) sum)
+        ((even? n)(fast-mul-iter (double x) (/ n 2) sum))
+        (else (fast-mul-iter (double x) (/ (- n 1) 2) (+ sum  x)))))
+  (cond ((or (= x 0) (= n 0)) 0)
+        ((= x 1) n)
+        ((= n 1) x)
+        (else (fast-mul-iter x n 0))))
+
